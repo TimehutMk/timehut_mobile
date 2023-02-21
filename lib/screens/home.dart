@@ -22,18 +22,18 @@ class Home extends StatelessWidget {
                   "Доколку сеуште не сте регистрирани потребно е да извршите регистрација.",
                   10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
+                const Padding(
+                  padding: EdgeInsets.only(
                     top: 40,
                   ),
                   child: CustomButton(
                     buttonText: "РЕГИСТРИРАЈ СЕ",
-                    textColor: const Color.fromRGBO(128, 128, 128, 1),
-                    backgroundColor: const Color.fromRGBO(245, 244, 244, 1),
+                    textColor: Color.fromRGBO(128, 128, 128, 1),
+                    backgroundColor: Color.fromRGBO(245, 244, 244, 1),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
+                const Padding(
+                  padding: EdgeInsets.only(
                     top: 30,
                   ),
                   child: CustomButton(
