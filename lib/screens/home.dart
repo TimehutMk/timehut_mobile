@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
                   child: CustomButton(
                     buttonText: "РЕГИСТРИРАЈ СЕ",
                     textColor: Color.fromRGBO(128, 128, 128, 1),
-                    backgroundColor: Color.fromRGBO(245, 244, 244, 1),
+                    backgroundColor: Color.fromRGBO(245, 245, 245, 1),
                   ),
                 ),
                 const Padding(
@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                   child: CustomButton(
                     buttonText: "НАЈАВИ СЕ",
                     textColor: Colors.white,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color.fromRGBO(58, 204, 225, 1),
                   ),
                 ),
               ],

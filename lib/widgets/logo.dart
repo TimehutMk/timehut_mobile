@@ -18,7 +18,7 @@ class Logo extends StatelessWidget {
             top: 10,
           ),
           child: Divider(
-            color: Colors.blue,
+            color: Color.fromRGBO(58, 204, 225, 1),
             thickness: 1,
           ),
         )
