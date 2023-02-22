@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScaffold(
       child: Column(
-        children: <Widget>[
+        children: [
           Expanded(
             child: Column(
               children: [
@@ -22,24 +22,26 @@ class Home extends StatelessWidget {
                   "Доколку сеуште не сте регистрирани потребно е да извршите регистрација.",
                   10,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(
+                Padding(
+                  padding: const EdgeInsets.only(
                     top: 40,
                   ),
                   child: CustomButton(
                     buttonText: "РЕГИСТРИРАЈ СЕ",
-                    textColor: Color.fromRGBO(128, 128, 128, 1),
-                    backgroundColor: Color.fromRGBO(245, 245, 245, 1),
+                    textColor: const Color.fromRGBO(128, 128, 128, 1),
+                    backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+                    function: () => Navigator.pushNamed(context, 'register'),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(
+                Padding(
+                  padding: const EdgeInsets.only(
                     top: 30,
                   ),
                   child: CustomButton(
                     buttonText: "НАЈАВИ СЕ",
                     textColor: Colors.white,
-                    backgroundColor: Color.fromRGBO(58, 204, 225, 1),
+                    backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                    function: () => Navigator.pushNamed(context, 'login'),
                   ),
                 ),
               ],

@@ -7,9 +7,12 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          'assets/images/logo.png',
-          height: 150,
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, 'home'),
+          child: Image.asset(
+            'assets/images/logo.png',
+            height: 150,
+          ),
         ),
         const Padding(
           padding: EdgeInsets.only(

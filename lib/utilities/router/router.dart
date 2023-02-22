@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/screens/home.dart';
+import 'package:timehut_mobile/screens/login.dart';
+import 'package:timehut_mobile/screens/register.dart';
 
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -7,6 +9,14 @@ class RouterGenerator {
       case 'home':
         return MaterialPageRoute(
           builder: (_) => const Home(),
+        );
+      case 'login':
+        return MaterialPageRoute(
+          builder: (_) => const Login(),
+        );
+      case 'register':
+        return MaterialPageRoute(
+          builder: (_) => const Register(),
         );
       default:
         return _error();

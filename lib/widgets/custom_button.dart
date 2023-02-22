@@ -4,18 +4,20 @@ class CustomButton extends StatelessWidget {
   final String buttonText;
   final Color backgroundColor;
   final Color textColor;
+  final Function() function;
 
   const CustomButton({
     required this.buttonText,
     required this.backgroundColor,
     required this.textColor,
+    required this.function,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => {},
+      onPressed: function,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         elevation: 10,
