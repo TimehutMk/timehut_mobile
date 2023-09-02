@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
-import 'package:timehut_mobile/widgets/footer.dart';
-import 'package:timehut_mobile/widgets/logo.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
 class Help extends StatelessWidget {
@@ -10,44 +8,38 @@ class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
-      child: Column(
-        children: [
-          const Logo(),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 16.0),
-                  _buildText("ПОМОШ", FontWeight.bold),
-                  const SizedBox(height: 16.0),
-                  _buildText(
-                      "Доколку имате проблем со користењето на апликацијата Ве молиме најпрво направете ги следните чекори:",
-                      FontWeight.normal),
-                  const SizedBox(height: 16.0),
-                  _buildOrderedList(),
-                  const SizedBox(height: 16.0),
-                  _buildText(
-                      "Доколку ги проверивте овие чекори и сеуште имате проблем со користењето на апликацијата Ве молиме контактирајте не со притискање на копчето подолу. Со притискање на копчето Вие се согласувате апликацијата да генерира лог документ кој ќе биде испратен во нашиот центар за подршка со што ќе можеме да го идентификуваме и отстраниме проблемот.",
-                      FontWeight.normal),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 40,
-                      bottom: 40,
-                    ),
-                    child: CustomButton(
-                      buttonText: "ПОДРШКА",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                      function: () => {},
-                    ),
-                  ),
-                ],
+      child: Expanded(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 16.0),
+              _buildText("ПОМОШ", FontWeight.bold),
+              const SizedBox(height: 16.0),
+              _buildText(
+                  "Доколку имате проблем со користењето на апликацијата Ве молиме најпрво направете ги следните чекори:",
+                  FontWeight.normal),
+              const SizedBox(height: 16.0),
+              _buildOrderedList(),
+              const SizedBox(height: 16.0),
+              _buildText(
+                  "Доколку ги проверивте овие чекори и сеуште имате проблем со користењето на апликацијата Ве молиме контактирајте не со притискање на копчето подолу. Со притискање на копчето Вие се согласувате апликацијата да генерира лог документ кој ќе биде испратен во нашиот центар за подршка со што ќе можеме да го идентификуваме и отстраниме проблемот.",
+                  FontWeight.normal),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 40,
+                  bottom: 40,
+                ),
+                child: CustomButton(
+                  buttonText: "ПОДРШКА",
+                  textColor: Colors.white,
+                  backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                  function: () => {},
+                ),
               ),
-            ),
+            ],
           ),
-          const Footer(),
-        ],
+        ),
       ),
     );
   }

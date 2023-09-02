@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
-import 'package:timehut_mobile/widgets/footer.dart';
-import 'package:timehut_mobile/widgets/logo.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,19 +11,6 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return const BaseScaffold(
-      child: Column(
-        children: [
-          Expanded(
-            child: Column(
-              children: [
-                Logo(),
-              ],
-            ),
-          ),
-          Footer(),
-        ],
-      ),
-    );
+    return const BaseScaffold(child: Expanded(child: Column()));
   }
 }

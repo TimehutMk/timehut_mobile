@@ -10,45 +10,39 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
-      child: Column(
-        children: [
-          const Logo(),
-          Expanded(
-            child: Column(
-              children: [
-                _addWelcomeText("Добредојдовте на платформата за", 20),
-                _addWelcomeText("ЕВИДЕНЦИЈА НА РАБОТНО ВРЕМЕ", 10),
-                _addWelcomeText(
-                  "Доколку сеуште не сте регистрирани потребно е да извршите регистрација.",
-                  10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 40,
-                  ),
-                  child: CustomButton(
-                    buttonText: "РЕГИСТРИРАЈ СЕ",
-                    textColor: const Color.fromRGBO(128, 128, 128, 1),
-                    backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-                    function: () => Navigator.pushNamed(context, 'auth.register'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                  ),
-                  child: CustomButton(
-                    buttonText: "НАЈАВИ СЕ",
-                    textColor: Colors.white,
-                    backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                    function: () => Navigator.pushNamed(context, 'auth.login'),
-                  ),
-                ),
-              ],
+      child: Expanded(
+        child: Column(
+          children: [
+            _addWelcomeText("Добредојдовте на платформата за", 20),
+            _addWelcomeText("ЕВИДЕНЦИЈА НА РАБОТНО ВРЕМЕ", 10),
+            _addWelcomeText(
+              "Доколку сеуште не сте регистрирани потребно е да извршите регистрација.",
+              10,
             ),
-          ),
-          const Footer(),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 40,
+              ),
+              child: CustomButton(
+                buttonText: "РЕГИСТРИРАЈ СЕ",
+                textColor: const Color.fromRGBO(128, 128, 128, 1),
+                backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+                function: () => Navigator.pushNamed(context, 'auth.register'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 30,
+              ),
+              child: CustomButton(
+                buttonText: "НАЈАВИ СЕ",
+                textColor: Colors.white,
+                backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                function: () => Navigator.pushNamed(context, 'employee.menu'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
