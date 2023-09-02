@@ -3,14 +3,9 @@ import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/footer.dart';
 import 'package:timehut_mobile/widgets/logo.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Information extends StatelessWidget {
+  const Information({Key? key}) : super(key: key);
 
-  @override
-  State<Register> createState() => _RegisterState();
-}
-
-class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return const BaseScaffold(

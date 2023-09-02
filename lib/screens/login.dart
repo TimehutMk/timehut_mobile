@@ -13,17 +13,17 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return const BaseScaffold(
       child: Column(
         children: [
           Expanded(
             child: Column(
-              children: const [
+              children: [
                 Logo(),
               ],
             ),
           ),
-          const Footer(),
+          Footer(),
         ],
       ),
     );
