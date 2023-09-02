@@ -42,6 +42,17 @@ class StartWork extends StatelessWidget {
                     function: () => {},
                   ),
                 ),
+                 Padding(
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                  ),
+                  child: CustomButton(
+                    buttonText: "МОИ СМЕНИ",
+                    textColor: Colors.white,
+                    backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                    function: () => {},
+                  ),
+                ),
               ],
             ),
           ),
@@ -52,13 +63,13 @@ class StartWork extends StatelessWidget {
   }
 
   Widget _buildText(String text, FontWeight fontWeight, double fontSize) {
-  return Text(
-    text,
-    style: TextStyle(
-      fontWeight: fontWeight,
-      fontSize: fontSize,
-    ),
-    textAlign: TextAlign.center,
-  );
-}
+    return Text(
+      text,
+      style: TextStyle(
+        fontWeight: fontWeight,
+        fontSize: fontSize,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
 }
