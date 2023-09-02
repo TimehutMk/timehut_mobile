@@ -20,30 +20,14 @@ class Help extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Помош", // Title
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 14),
-                    const Text(
-                      "Доколку имате проблем со користењето на апликацијата Ве молиме најпрво направете ги следните чекори:",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 16.0),
+                    _buildText("ПОМОШ", FontWeight.bold),
+                    const SizedBox(height: 16.0),
+                    _buildText("Доколку имате проблем со користењето на апликацијата Ве молиме најпрво направете ги следните чекори:", FontWeight.normal),
+                    const SizedBox(height: 16.0),
                     _buildOrderedList(),
-                    const SizedBox(height: 14),
-                    const Text(
-                      "Доколку ги проверивте овие чекори и сеуште имате проблем со користењето на апликацијата Ве молиме контактирајте не со притискање на копчето подолу. Со притискање на копчето Вие се согласувате апликацијата да генерира лог документ кој ќе биде испратен во нашиот центар за подршка со што ќе можеме да го идентификуваме и отстраниме проблемот.",
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
+                    const SizedBox(height: 16.0),
+                    _buildText("Доколку ги проверивте овие чекори и сеуште имате проблем со користењето на апликацијата Ве молиме контактирајте не со притискање на копчето подолу. Со притискање на копчето Вие се согласувате апликацијата да генерира лог документ кој ќе биде испратен во нашиот центар за подршка со што ќе можеме да го идентификуваме и отстраниме проблемот.", FontWeight.normal),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 40,
@@ -78,6 +62,16 @@ class Help extends StatelessWidget {
         _buildListItem("3. Најава",
             "Дали можете успешно да се најавите и да иницирате НАЈАВА НА РАБОТА"),
       ],
+    );
+  }
+
+  Widget _buildText(String text, FontWeight fontWeight) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontWeight: fontWeight,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 
