@@ -4,8 +4,8 @@ import 'package:timehut_mobile/widgets/footer.dart';
 import 'package:timehut_mobile/widgets/logo.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
-class StartWork extends StatelessWidget {
-  const StartWork({Key? key}) : super(key: key);
+class Menu extends StatelessWidget {
+  const Menu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

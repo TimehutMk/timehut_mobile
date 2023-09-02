@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/screens/details/help.dart';
-import 'package:timehut_mobile/screens/employee/start_work.dart';
+import 'package:timehut_mobile/screens/employee/menu.dart';
 import 'package:timehut_mobile/screens/employee/time_count.dart';
 import 'package:timehut_mobile/screens/home.dart';
 import 'package:timehut_mobile/screens/details/information.dart';
@@ -30,9 +30,9 @@ class RouterGenerator {
         return MaterialPageRoute(
           builder: (_) => const Information(),
         );
-      case 'employee.start_work':
+      case 'employee.menu':
         return MaterialPageRoute(
-          builder: (_) => const StartWork(),
+          builder: (_) => const Menu(),
         );
       case 'employee.time_count':
         return MaterialPageRoute(
