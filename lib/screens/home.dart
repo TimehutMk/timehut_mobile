@@ -19,17 +19,6 @@ class Home extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                top: 40,
-              ),
-              child: CustomButton(
-                buttonText: "РЕГИСТРИРАЈ СЕ",
-                textColor: const Color.fromRGBO(128, 128, 128, 1),
-                backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-                function: () => Navigator.pushNamed(context, 'auth.register'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
                 top: 30,
               ),
               child: CustomButton(

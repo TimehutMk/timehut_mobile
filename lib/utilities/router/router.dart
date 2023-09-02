@@ -6,7 +6,6 @@ import 'package:timehut_mobile/screens/employee/time_count.dart';
 import 'package:timehut_mobile/screens/home.dart';
 import 'package:timehut_mobile/screens/details/information.dart';
 import 'package:timehut_mobile/screens/auth/login.dart';
-import 'package:timehut_mobile/screens/auth/register.dart';
 
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -18,10 +17,6 @@ class RouterGenerator {
       case 'auth.login':
         return MaterialPageRoute(
           builder: (_) => const Login(),
-        );
-      case 'auth.register':
-        return MaterialPageRoute(
-          builder: (_) => const Register(),
         );
       case 'details.help':
         return MaterialPageRoute(
