@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 
-class Information extends StatelessWidget {
-  const Information({Key? key}) : super(key: key);
+class InformationScreen extends StatelessWidget {
+  const InformationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

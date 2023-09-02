@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(

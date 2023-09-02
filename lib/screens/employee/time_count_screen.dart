@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
-class TimeCount extends StatelessWidget {
-  const TimeCount({Key? key}) : super(key: key);
+class TimeCountScreen extends StatelessWidget {
+  const TimeCountScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

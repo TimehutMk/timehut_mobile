@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
-class Menu extends StatelessWidget {
-  const Menu({Key? key}) : super(key: key);
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

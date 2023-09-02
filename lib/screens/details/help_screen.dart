@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
-class Help extends StatelessWidget {
-  const Help({Key? key}) : super(key: key);
+class HelpScreen extends StatelessWidget {
+  const HelpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

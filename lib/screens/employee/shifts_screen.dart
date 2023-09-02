@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/shift_list_item.dart';
 
-class Shifts extends StatelessWidget {
-  Shifts({Key? key}) : super(key: key);
+class ShiftsScreen extends StatelessWidget {
+  ShiftsScreen({Key? key}) : super(key: key);
 
   final List<Map<String, String>> shifts = [
     {
