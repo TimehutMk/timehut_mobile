@@ -19,13 +19,24 @@ class Home extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                top: 30,
+                top: 40,
               ),
               child: CustomButton(
                 buttonText: "НАЈАВИ СЕ",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => Navigator.pushNamed(context, 'employee.menu'),
+                function: () => Navigator.pushNamed(context, 'auth.login'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 30,
+              ),
+              child: CustomButton(
+                buttonText: "ЗАБОРАВЕНА ЛОЗИНКА",
+                textColor: const Color.fromRGBO(128, 128, 128, 1),
+                backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+                function: () => {},
               ),
             ),
           ],
