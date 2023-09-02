@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/widgets/base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
-import 'package:timehut_mobile/widgets/footer.dart';
-import 'package:timehut_mobile/widgets/logo.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
