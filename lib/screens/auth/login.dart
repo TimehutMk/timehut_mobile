@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
               buttonText: "НАЈАВИ СЕ",
               textColor: Colors.white,
               backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-              function: () => {},
+              function: () => Navigator.pushNamed(context, "employee.menu"),
             ),
           ],
         ),

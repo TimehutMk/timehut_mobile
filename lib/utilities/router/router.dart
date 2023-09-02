@@ -36,7 +36,7 @@ class RouterGenerator {
         );
       case 'employee.shifts':
         return MaterialPageRoute(
-          builder: (_) => const Shifts(),
+          builder: (_) => Shifts(),
         );
       default:
         return _error();
