@@ -5,29 +5,32 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 0,
-      right: 0,
-      bottom: 0,
-      child: Column(
-        children: [
-          _buildFooterButton(
-            Icons.help,
-            "Помош",
-            5,
-            () {
-              Navigator.pushNamed(context, 'help');
-            },
-          ),
-          _buildFooterButton(
-            Icons.info,
-            "Информации",
-            5,
-            () {
-              Navigator.pushNamed(context, 'information');
-            },
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0), // Add space at the top
+      child: Positioned(
+        left: 0,
+        right: 0,
+        bottom: 0,
+        child: Column(
+          children: [
+            _buildFooterButton(
+              Icons.help,
+              "Помош",
+              5,
+              () {
+                Navigator.pushNamed(context, 'help');
+              },
+            ),
+            _buildFooterButton(
+              Icons.info,
+              "Информации",
+              5,
+              () {
+                Navigator.pushNamed(context, 'information');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
