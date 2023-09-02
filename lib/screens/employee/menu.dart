@@ -23,7 +23,7 @@ class Menu extends StatelessWidget {
                 buttonText: "НАЈАВА НА РАБОТА",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => {},
+                function: () => Navigator.pushNamed(context, 'employee.time_count'),
               ),
             ),
             Padding(
@@ -34,7 +34,7 @@ class Menu extends StatelessWidget {
                 buttonText: "РАБОТА ОД ДОМА",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => {},
+                function: () => Navigator.pushNamed(context, 'employee.time_count'),
               ),
             ),
             Padding(
