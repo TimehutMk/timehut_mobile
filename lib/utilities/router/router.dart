@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/screens/help.dart';
+import 'package:timehut_mobile/screens/details/help.dart';
 import 'package:timehut_mobile/screens/home.dart';
-import 'package:timehut_mobile/screens/information.dart';
-import 'package:timehut_mobile/screens/login.dart';
-import 'package:timehut_mobile/screens/register.dart';
+import 'package:timehut_mobile/screens/details/information.dart';
+import 'package:timehut_mobile/screens/auth/login.dart';
+import 'package:timehut_mobile/screens/auth/register.dart';
 
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
