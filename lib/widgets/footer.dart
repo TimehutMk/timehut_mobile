@@ -18,7 +18,7 @@ class Footer extends StatelessWidget {
               "Помош",
               5,
               () {
-                Navigator.pushNamed(context, 'help');
+                Navigator.pushNamed(context, 'details.help');
               },
             ),
             _buildFooterButton(
@@ -26,7 +26,7 @@ class Footer extends StatelessWidget {
               "Информации",
               5,
               () {
-                Navigator.pushNamed(context, 'information');
+                Navigator.pushNamed(context, 'details.information');
               },
             ),
           ],

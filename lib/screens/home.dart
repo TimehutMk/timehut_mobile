@@ -12,10 +12,10 @@ class Home extends StatelessWidget {
     return BaseScaffold(
       child: Column(
         children: [
+          const Logo(),
           Expanded(
             child: Column(
               children: [
-                const Logo(),
                 _addWelcomeText("Добредојдовте на платформата за", 20),
                 _addWelcomeText("ЕВИДЕНЦИЈА НА РАБОТНО ВРЕМЕ", 10),
                 _addWelcomeText(
@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
                     buttonText: "РЕГИСТРИРАЈ СЕ",
                     textColor: const Color.fromRGBO(128, 128, 128, 1),
                     backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-                    function: () => Navigator.pushNamed(context, 'register'),
+                    function: () => Navigator.pushNamed(context, 'auth.register'),
                   ),
                 ),
                 Padding(
@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                     buttonText: "НАЈАВИ СЕ",
                     textColor: Colors.white,
                     backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                    function: () => Navigator.pushNamed(context, 'login'),
+                    function: () => Navigator.pushNamed(context, 'auth.login'),
                   ),
                 ),
               ],

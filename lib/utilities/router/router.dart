@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/screens/details/help.dart';
+import 'package:timehut_mobile/screens/employee/start_work.dart';
 import 'package:timehut_mobile/screens/home.dart';
 import 'package:timehut_mobile/screens/details/information.dart';
 import 'package:timehut_mobile/screens/auth/login.dart';
@@ -12,21 +13,25 @@ class RouterGenerator {
         return MaterialPageRoute(
           builder: (_) => const Home(),
         );
-      case 'login':
+      case 'auth.login':
         return MaterialPageRoute(
           builder: (_) => const Login(),
         );
-      case 'register':
+      case 'auth.register':
         return MaterialPageRoute(
           builder: (_) => const Register(),
         );
-      case 'help':
+      case 'details.help':
         return MaterialPageRoute(
           builder: (_) => const Help(),
         );
-      case 'information':
+      case 'details.information':
         return MaterialPageRoute(
           builder: (_) => const Information(),
+        );
+      case 'employee.start_work':
+        return MaterialPageRoute(
+          builder: (_) => const StartWork(),
         );
       default:
         return _error();
