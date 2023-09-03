@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:timehut_mobile/routers/app_router.gr.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -17,17 +19,13 @@ class Footer extends StatelessWidget {
               Icons.help,
               "Помош",
               5,
-              () {
-                Navigator.pushNamed(context, 'details.help');
-              },
+              () => AutoRouter.of(context).push(const HelpRoute()),
             ),
             _buildFooterButton(
               Icons.info,
               "Информации",
               5,
-              () {
-                Navigator.pushNamed(context, 'details.information');
-              },
+              () => AutoRouter.of(context).push(const InformationRoute()),
             ),
           ],
         ),

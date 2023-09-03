@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({super.key});
+  final Function() onPressed;
+
+  const Logo({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => Navigator.pushNamed(context, 'home'),
+          onTap: onPressed,
           child: Image.asset(
             'assets/images/logo.png',
             height: 150,

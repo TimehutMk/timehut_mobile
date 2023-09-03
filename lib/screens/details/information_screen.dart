@@ -1,12 +1,14 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 
+@RoutePage()
 class InformationScreen extends StatelessWidget {
   const InformationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AuthBaseScaffold(
       child: Expanded(
         child: SingleChildScrollView(
           child: Column(

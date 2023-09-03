@@ -1,13 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/routers/app_router.gr.dart';
+import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AuthBaseScaffold(
       child: Expanded(
         child: Column(
           children: [
@@ -25,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                 buttonText: "НАЈАВИ СЕ",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => Navigator.pushNamed(context, 'auth.login'),
+                function: () => AutoRouter.of(context).push(const LoginRoute()),
               ),
             ),
             Padding(

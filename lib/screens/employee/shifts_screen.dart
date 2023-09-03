@@ -1,7 +1,9 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/shift_list_item.dart';
 
+@RoutePage()
 class ShiftsScreen extends StatelessWidget {
   ShiftsScreen({Key? key}) : super(key: key);
 
@@ -87,7 +89,7 @@ class ShiftsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AppBaseScaffold(
       child: Expanded(
         child: ListView.builder(
           itemCount: shifts.length,

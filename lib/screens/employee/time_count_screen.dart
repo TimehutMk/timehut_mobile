@@ -1,13 +1,15 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
+@RoutePage()
 class TimeCountScreen extends StatelessWidget {
   const TimeCountScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AppBaseScaffold(
       child: Expanded(
         child: Column(
           children: [

@@ -1,13 +1,15 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
+@RoutePage()
 class HelpScreen extends StatelessWidget {
   const HelpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AuthBaseScaffold(
       child: Expanded(
         child: SingleChildScrollView(
           child: Column(
@@ -52,8 +54,8 @@ class HelpScreen extends StatelessWidget {
             "Апликацијата нема потреба од постојана врска со интернет но пожелно е истата да ја има заради ажурирање на податоците и следење во реално време. Проверете дали имате пристап до интернет."),
         _buildListItem("2. Проверка на подесувањата",
             "Проверете дали имате овозможено следните пермисии Location, Storage, Device Info, WIFI & Data Conectivity, Permanent Notification."),
-        _buildListItem("3. Најава",
-            "Дали можете успешно да се најавите и да иницирате НАЈАВА НА РАБОТА"),
+        _buildListItem(
+            "3. Најава", "Дали можете успешно да се најавите и да иницирате НАЈАВА НА РАБОТА"),
       ],
     );
   }

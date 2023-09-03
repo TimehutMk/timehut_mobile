@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/themes/custom_theme.dart';
-import 'package:timehut_mobile/utilities/router/router.dart';
 
-void main() {
+Future<void> main() async {
+  await AppRegistry.createNewAndRegister();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Timehut',
       theme: CustomTheme.redTheme,
-      initialRoute: RouterGenerator.homeRoute,
-      onGenerateRoute: RouterGenerator.generateRoute,
+      routerConfig: AppRegistry.i.appRouter.config(),
     );
   }
 }

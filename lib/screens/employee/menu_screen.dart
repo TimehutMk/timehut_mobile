@@ -1,13 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:timehut_mobile/widgets/base_scaffold.dart';
+import 'package:timehut_mobile/routers/app_router.gr.dart';
+import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
+@RoutePage()
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
+    return AppBaseScaffold(
       child: Expanded(
         child: Column(
           children: [
@@ -23,7 +26,7 @@ class MenuScreen extends StatelessWidget {
                 buttonText: "НАЈАВА НА РАБОТА",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => Navigator.pushNamed(context, 'employee.time_count'),
+                function: () => AutoRouter.of(context).push(const TimeCountRoute()),
               ),
             ),
             Padding(
@@ -34,7 +37,7 @@ class MenuScreen extends StatelessWidget {
                 buttonText: "РАБОТА ОД ДОМА",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => Navigator.pushNamed(context, 'employee.time_count'),
+                function: () => AutoRouter.of(context).push(const TimeCountRoute()),
               ),
             ),
             Padding(
@@ -45,7 +48,9 @@ class MenuScreen extends StatelessWidget {
                 buttonText: "МОИ СМЕНИ",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: () => Navigator.pushNamed(context, 'employee.shifts'),
+                function: () => AutoRouter.of(context).push(
+                  ShiftsRoute(),
+                ),
               ),
             ),
           ],

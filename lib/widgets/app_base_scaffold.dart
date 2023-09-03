@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:timehut_mobile/routers/app_router.gr.dart';
 import 'package:timehut_mobile/widgets/footer.dart';
 import 'package:timehut_mobile/widgets/logo.dart';
 
-class BaseScaffold extends StatelessWidget {
+class AppBaseScaffold extends StatelessWidget {
   final Widget child;
 
-  const BaseScaffold({required this.child, super.key});
+  const AppBaseScaffold({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class BaseScaffold extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 30),
         child: Column(
           children: [
-            const Logo(),
+            Logo(
+              onPressed: () => AutoRouter.of(context).push(const MenuRoute()),
+            ),
             child,
             const Footer(),
           ],
