@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
       AutoRouter.of(context).replaceAll([const MenuRoute()]);
     } catch (_) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Се случи грешка!')));
     }
   }
 
@@ -67,7 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     controller: _emailController,
-                    validator: (value) => value == null || value == '' ? 'Полето е задолжително' : null,
+                    validator: (value) =>
+                        value == null || value == '' ? 'Полето е задолжително' : null,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                     ),
@@ -93,7 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     controller: _passwordController,
-                    validator: (value) => value == null || value == '' ? 'Полето е задолжително' : null,
+                    validator: (value) =>
+                        value == null || value == '' ? 'Полето е задолжително' : null,
                     obscureText: true,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
