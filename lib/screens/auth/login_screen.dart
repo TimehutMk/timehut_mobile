@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/models/requests/login_request.dart';
@@ -30,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
           data: LoginRequest(
             email: _emailController.text,
             password: _passwordController.text,
-            deviceName: 'Flutter app',
+            deviceName: await getDeviceName(),
           ).toJson());
       final data = res.data;
       if (data == null) return;
@@ -125,5 +128,17 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<String> getDeviceName() async {
+    final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      return androidInfo.model;
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      return iosInfo.name;
+    }
+    return 'Unknown Device';
   }
 }
