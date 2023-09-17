@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:timehut_mobile/routers/app_router.gr.dart';
+import 'package:timehut_mobile/state/user_state.dart';
 import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
@@ -17,7 +19,7 @@ class MenuScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
             _buildText("Добредојдовте", FontWeight.normal, 16),
             const SizedBox(height: 8.0),
-            _buildText("ИМЕ И ПРЕЗИМЕ", FontWeight.bold, 22),
+            _buildText(context.watch<UserState>().name ?? '', FontWeight.bold, 22),
             Padding(
               padding: const EdgeInsets.only(
                 top: 30,
@@ -46,6 +48,19 @@ class MenuScreen extends StatelessWidget {
               ),
               child: CustomButton(
                 buttonText: "МОИ СМЕНИ",
+                textColor: Colors.white,
+                backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                function: () => AutoRouter.of(context).push(
+                  ShiftsRoute(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 30,
+              ),
+              child: CustomButton(
+                buttonText: "ОДЈАВИ СЕ",
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
                 function: () => AutoRouter.of(context).push(

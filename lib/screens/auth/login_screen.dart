@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/models/requests/login_request.dart';
 import 'package:timehut_mobile/models/responses/login_response.dart';
 import 'package:timehut_mobile/routers/app_router.gr.dart';
+import 'package:timehut_mobile/state/user_state.dart';
 import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
@@ -38,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final data = res.data;
       if (data == null) return;
       final loginResponse = LoginResponse.fromJson(data);
+      context.read<UserState>().setUserState(loginResponse);
       AutoRouter.of(context).replaceAll([const MenuRoute()]);
     } catch (error) {
       if (!mounted) return;
