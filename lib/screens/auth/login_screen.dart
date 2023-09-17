@@ -5,7 +5,7 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/models/requests/login_request.dart';
-import 'package:timehut_mobile/models/user.dart';
+import 'package:timehut_mobile/models/responses/login_response.dart';
 import 'package:timehut_mobile/routers/app_router.gr.dart';
 import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
     try {
-      final res = await dio.post<Map<String, Object>>('/auth/login',
+      final res = await dio.post<Map<String, dynamic>>('/auth/login',
           data: LoginRequest(
             email: _emailController.text,
             password: _passwordController.text,
@@ -37,9 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ).toJson());
       final data = res.data;
       if (data == null) return;
-      final user = User.fromJson(data);
+      final loginResponse = LoginResponse.fromJson(data);
       AutoRouter.of(context).replaceAll([const MenuRoute()]);
-    } catch (_) {
+    } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

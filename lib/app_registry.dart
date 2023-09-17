@@ -14,7 +14,7 @@ class AppRegistry {
   static Future<void> createNewAndRegister() async {
     final appRouter = AppRouter();
     final dio = Dio(BaseOptions(
-      baseUrl: 'http://10.0.2.2:8000/api/v1',
+      baseUrl: 'https://healthy-grass-ggixasnm6v.ploi.site/api/v1',
       contentType: 'application/json',
     ));
 
