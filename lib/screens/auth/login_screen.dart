@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     controller: _emailController,
-                    validator: (value) => value == null || value == '' ? 'Required' : null,
+                    validator: (value) => value == null || value == '' ? 'Полето е задолжително' : null,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                     ),
@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     controller: _passwordController,
-                    validator: (value) => value == null || value == '' ? 'Required' : null,
+                    validator: (value) => value == null || value == '' ? 'Полето е задолжително' : null,
                     obscureText: true,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
