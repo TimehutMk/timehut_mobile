@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:timehut_mobile/app_registry.dart';
+import 'package:timehut_mobile/models/requests/login_request.dart';
+import 'package:timehut_mobile/models/user.dart';
 import 'package:timehut_mobile/routers/app_router.gr.dart';
 import 'package:timehut_mobile/widgets/auth_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
@@ -24,19 +26,25 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
     try {
-      // final res = await dio.post<Map<String, Object>>('/auth/login',
-      //     data: LoginRequest(
-      //       email: _emailController.text,
-      //       password: _passwordController.text,
-      //       deviceName: 'Flutter app',
-      //     ).toJson());
-      // final data = res.data;
-      // if (data == null) return;
-      // final user = User.fromJson(data);
+      final res = await dio.post<Map<String, Object>>('/auth/login',
+          data: LoginRequest(
+            email: _emailController.text,
+            password: _passwordController.text,
+            deviceName: 'Flutter app',
+          ).toJson());
+      final data = res.data;
+      if (data == null) return;
+      final user = User.fromJson(data);
       AutoRouter.of(context).replaceAll([const MenuRoute()]);
     } catch (_) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Се случи грешка!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Се случи грешка!',
+          ),
+        ),
+      );
     }
   }
 
