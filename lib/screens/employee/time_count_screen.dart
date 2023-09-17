@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:timehut_mobile/state/user_state.dart';
+import 'package:timehut_mobile/state/user_provider.dart';
 import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
@@ -23,7 +23,7 @@ class TimeCountScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             _buildText(
-              context.watch<UserState>().name ?? '',
+              context.watch<UserProvider>().user?.name ?? '',
               FontWeight.bold,
               22,
             ),

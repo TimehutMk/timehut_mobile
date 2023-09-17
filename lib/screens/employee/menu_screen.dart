@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/routers/app_router.gr.dart';
-import 'package:timehut_mobile/state/user_state.dart';
+import 'package:timehut_mobile/state/user_provider.dart';
 import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
@@ -17,13 +17,13 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen> {
   final dio = AppRegistry.i.dio;
+  final userProvider = AppRegistry.i.userProvider;
 
   Future<void> logout() async {
     try {
-      // @TODO: make this also invalidate the token on the backend
-      // final res = await dio.post('/logout');
-      // if (res.statusCode != 200) return;
-      // context.read<UserState>().clearUserState();
+      final res = await dio.post('/logout');
+      if (res.statusCode != 200) return;
+      userProvider.clearUserState();
       AutoRouter.of(context).replaceAll([const HomeRoute()]);
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -45,7 +45,7 @@ class _MenuScreenState extends State<MenuScreen> {
             const SizedBox(height: 16.0),
             _buildText("Добредојдовте", FontWeight.normal, 16),
             const SizedBox(height: 8.0),
-            _buildText(context.watch<UserState>().name ?? '', FontWeight.bold, 22),
+            _buildText(context.watch<UserProvider>().user?.name ?? '', FontWeight.bold, 22),
             Padding(
               padding: const EdgeInsets.only(
                 top: 30,
@@ -77,7 +77,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 textColor: Colors.white,
                 backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
                 function: () => AutoRouter.of(context).push(
-                  ShiftsRoute(),
+                  const ShiftsRoute(),
                 ),
               ),
             ),
