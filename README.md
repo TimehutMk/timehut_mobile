@@ -9,6 +9,7 @@
    - [Prerequisites](#prerequisites)
    - [Cloning the Timehut Project](#cloning-the-timehut-project)
    - [Running the Timehut Flutter App](#running-the-timehut-flutter-app)
+5. [Images from the Application](#images-from-the-application)
 
 ---
 
@@ -101,3 +102,12 @@ Before you begin, please ensure that you have the following prerequisites instal
    ```
 
 That's it! You should now have the Timehut Flutter app running on your local development environment. You can make changes, test, and customize the app as needed for your specific use case.
+
+
+### Images from the Application<a name="images-from-the-application"></a>
+
+<img width="200" src="https://github.com/TimehutMk/timehut_mobile/assets/75941337/885f293d-e462-4df6-859e-ce5a6966207e">
+<img width="200" src="https://github.com/TimehutMk/timehut_mobile/assets/75941337/762a3949-1ce2-479b-9c34-0bae12d78a05">
+<img width="200" src="https://github.com/TimehutMk/timehut_mobile/assets/75941337/69eb6131-c924-43a2-899d-71216d6113a0">
+<img width="200" src="https://github.com/TimehutMk/timehut_mobile/assets/75941337/0c60ab84-9ae6-4ea1-b94c-f27bc260b93d">
+
