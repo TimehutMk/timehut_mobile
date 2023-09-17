@@ -19,7 +19,9 @@ class AuthBaseScaffold extends StatelessWidget {
             Logo(
               onPressed: () => AutoRouter.of(context).replaceAll([const HomeRoute()]),
             ),
-            child,
+            Expanded(
+              child: child,
+            ),
             const Footer(),
           ],
         ),

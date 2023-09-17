@@ -45,73 +45,75 @@ class _LoginScreenState extends State<LoginScreen> {
     return AuthBaseScaffold(
       child: Form(
         key: _formKey,
-        child: Expanded(
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 10),
-                child: Text(
-                  "Корисничко име",
-                  style: TextStyle(fontSize: 18),
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 10),
+                  child: Text(
+                    "Корисничко име",
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.grey[400]!),
-                ),
-                child: Container(
-                  width: 280,
-                  height: 60,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextFormField(
-                    controller: _emailController,
-                    validator: (value) =>
-                        value == null || value == '' ? 'Полето е задолжително' : null,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF5F5F5),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Colors.grey[400]!),
+                  ),
+                  child: Container(
+                    width: 280,
+                    height: 60,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextFormField(
+                      controller: _emailController,
+                      validator: (value) =>
+                          value == null || value == '' ? 'Полето е задолжително' : null,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 16, bottom: 10),
-                child: Text(
-                  "Лозинка",
-                  style: TextStyle(fontSize: 18),
+                const Padding(
+                  padding: EdgeInsets.only(top: 16, bottom: 10),
+                  child: Text(
+                    "Лозинка",
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.grey[400]!),
-                ),
-                child: Container(
-                  width: 280,
-                  height: 60,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: TextFormField(
-                    controller: _passwordController,
-                    validator: (value) =>
-                        value == null || value == '' ? 'Полето е задолжително' : null,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF5F5F5),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Colors.grey[400]!),
+                  ),
+                  child: Container(
+                    width: 280,
+                    height: 60,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      validator: (value) =>
+                          value == null || value == '' ? 'Полето е задолжително' : null,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              CustomButton(
-                buttonText: "НАЈАВИ СЕ",
-                textColor: Colors.white,
-                backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                function: submit,
-              ),
-            ],
-          ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  buttonText: "НАЈАВИ СЕ",
+                  textColor: Colors.white,
+                  backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                  function: submit,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
