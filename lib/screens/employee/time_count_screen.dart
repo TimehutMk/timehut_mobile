@@ -70,6 +70,24 @@ class _TimeCountScreenState extends State<TimeCountScreen> {
     }
   }
 
+  Future<void> endShift() async {
+    try {
+      final res = await dio.post('/shifts/end');
+      if (res.statusCode != 200) return;
+      shiftProvider.clearShiftState();
+      setState(() {});
+      _timer?.cancel();
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Се случи грешка!',
+          ),
+        ),
+      );
+    }
+  }
+
   String formatDate(DateTime? dateTime) {
     if (dateTime == null) return '';
     return '${dateTime.hour}:${dateTime.minute}';
@@ -164,9 +182,7 @@ class _TimeCountScreenState extends State<TimeCountScreen> {
                             backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
                             textColor: Colors.white,
                             size: const Size(80, 60),
-                            function: () {
-                              // Handle stop button tap
-                            },
+                            function: endShift,
                           ),
                         ],
                       )
