@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
+import 'package:timehut_mobile/app_registry.dart';
 import 'package:timehut_mobile/state/user_provider.dart';
 import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
@@ -30,10 +33,63 @@ Future<dynamic> getLocation() async {
 }
 
 class _TimeCountScreenState extends State<TimeCountScreen> {
+  final shiftProvider = AppRegistry.i.shiftProvider;
+  final dio = AppRegistry.i.dio;
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
     getLocation();
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _timer?.cancel();
+  }
+
+  Future<void> startShift() async {
+    try {
+      final res = await dio.post('/shifts/start');
+      if (res.statusCode != 201) return;
+      shiftProvider.setStartAt(DateTime.now());
+      setState(() {});
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Се случи грешка!',
+          ),
+        ),
+      );
+    }
+  }
+
+  String formatDate(DateTime? dateTime) {
+    if (dateTime == null) return '';
+    return '${dateTime.hour}:${dateTime.minute}';
+  }
+
+  String formatTimeDifference(DateTime? dateTime) {
+    if (dateTime == null) return '';
+    final now = DateTime.now();
+    final difference = now.difference(dateTime);
+
+    // Calculate hours, minutes, and seconds from the difference
+    final hours = difference.inHours.remainder(24);
+    final minutes = difference.inMinutes.remainder(60);
+    final seconds = difference.inSeconds.remainder(60);
+
+    // Format the result as "hh:mm:ss"
+    final formattedTime =
+        '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+
+    return formattedTime;
   }
 
   @override
@@ -55,42 +111,65 @@ class _TimeCountScreenState extends State<TimeCountScreen> {
               22,
             ),
             _buildDivider(),
-            _buildText(
-              "Вашето работно време започна во: 08:05",
-              FontWeight.bold,
-              20.0,
-            ),
-            const SizedBox(height: 8.0),
-            _buildText(
-              "02:23:46",
-              FontWeight.bold,
-              50.0,
-            ),
+            shiftProvider.startAt == null
+                ? _buildText(
+                    "Притиснете подолу за да започнете со вашето работно време:",
+                    FontWeight.bold,
+                    20.0,
+                  )
+                : Column(
+                    children: [
+                      _buildText(
+                        "Вашето работно време започна во: ${formatDate(shiftProvider.startAt)}",
+                        FontWeight.bold,
+                        20.0,
+                      ),
+                      const SizedBox(height: 8.0),
+                      _buildText(
+                        formatTimeDifference(shiftProvider.startAt),
+                        FontWeight.bold,
+                        50.0,
+                      ),
+                    ],
+                  ),
             const SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomButton(
-                  icon: const Icon(Icons.pause),
-                  iconSize: 28,
-                  backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                  textColor: Colors.white,
-                  size: const Size(80, 60),
-                  function: () {
-                    // Handle pause button tap
-                  },
-                ),
-                const SizedBox(width: 16.0),
-                CustomButton(
-                  icon: const Icon(Icons.stop),
-                  iconSize: 28,
-                  backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
-                  textColor: Colors.white,
-                  size: const Size(80, 60),
-                  function: () {
-                    // Handle stop button tap
-                  },
-                ),
+                shiftProvider.startAt == null
+                    ? CustomButton(
+                        icon: const Icon(Icons.play_circle),
+                        iconSize: 28,
+                        backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                        textColor: Colors.white,
+                        size: const Size(80, 60),
+                        function: startShift,
+                      )
+                    : Row(
+                        children: [
+                          // CustomButton(
+                          //   icon: const Icon(Icons.pause),
+                          //   iconSize: 28,
+                          //   backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                          //   textColor: Colors.white,
+                          //   size: const Size(80, 60),
+                          //   function: () {
+                          //     // Handle pause button tap
+                          //   },
+                          // ),
+                          const SizedBox(width: 16.0),
+                          CustomButton(
+                            icon: const Icon(Icons.stop),
+                            iconSize: 28,
+                            backgroundColor: const Color.fromRGBO(58, 204, 225, 1),
+                            textColor: Colors.white,
+                            size: const Size(80, 60),
+                            function: () {
+                              // Handle stop button tap
+                            },
+                          ),
+                        ],
+                      )
               ],
             ),
           ],

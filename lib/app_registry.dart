@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:timehut_mobile/routers/app_router.dart';
+import 'package:timehut_mobile/state/shift_provider.dart';
 import 'package:timehut_mobile/state/user_provider.dart';
 
 class AppRegistry {
   final AppRouter appRouter;
   final Dio dio;
   final UserProvider userProvider;
+  final ShiftProvider shiftProvider;
 
-  AppRegistry._(this.appRouter, this.dio, this.userProvider);
+  AppRegistry._(this.appRouter, this.dio, this.userProvider, this.shiftProvider);
 
   static AppRegistry? _appRegistry;
 
@@ -20,16 +22,16 @@ class AppRegistry {
       contentType: 'application/json',
     ));
     final userProvider = UserProvider();
+    final shiftProvider = ShiftProvider();
     // Add an interceptor to set the token for every request
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) async {
-
         options.headers['Authorization'] = 'Bearer ${userProvider.token}';
 
-        handler.next(options); 
+        handler.next(options);
       },
     ));
 
-    _appRegistry = AppRegistry._(appRouter, dio, userProvider);
+    _appRegistry = AppRegistry._(appRouter, dio, userProvider, shiftProvider);
   }
 }
