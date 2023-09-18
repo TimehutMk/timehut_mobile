@@ -1,13 +1,40 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:timehut_mobile/state/user_provider.dart';
 import 'package:timehut_mobile/widgets/app_base_scaffold.dart';
 import 'package:timehut_mobile/widgets/custom_button.dart';
 
 @RoutePage()
-class TimeCountScreen extends StatelessWidget {
+class TimeCountScreen extends StatefulWidget {
   const TimeCountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TimeCountScreen> createState() => _TimeCountScreenState();
+}
+
+Location location = Location();
+bool _serviceEnabled = false;
+PermissionStatus? _permissionGranted;
+LocationData? _locationData;
+
+Future<dynamic> getLocation() async {
+  _serviceEnabled = await location.serviceEnabled();
+  if (!_serviceEnabled) _serviceEnabled = await location.requestService();
+  _permissionGranted = await location.requestPermission();
+  if (_permissionGranted == PermissionStatus.denied) {
+    _permissionGranted = await location.requestPermission();
+  }
+  _locationData = await location.getLocation();
+}
+
+class _TimeCountScreenState extends State<TimeCountScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
 
   @override
   Widget build(BuildContext context) {
